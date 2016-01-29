@@ -1,11 +1,8 @@
 package com.slawekkami;
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
-
 
 public class Main {
 
@@ -16,6 +13,7 @@ public class Main {
         System.out.println("Zastanów się i podaj pokolei wartości a, b, c");
         System.out.println("Wartosc calki obliczaną metodą Simpsona wynosi w przyblizeniu " + obliczCalka());
     }
+
     private static double obliczCalka(){
         double start, stop, przedzial, funkcjaXi, funkcjaTi, xi;
         int n, a, b, c;
@@ -40,8 +38,8 @@ public class Main {
             funkcjaXi += funkcjaX(xi, a, b, c); //funkcja w kolejnych przediałach xi
         }
         funkcjaTi += funkcjaX(stop - przedzial / 2, a, b, c);
-        return (przedzial / 6) * (funkcjaX(start, a, b, c) + funkcjaX(stop, a, b, c) + 2 * funkcjaXi + 4 * funkcjaTi);
-        //System.out.println("Wartosc calki obliczaną metodą Simpsona wynosi w przyblizeniu " + calka);
+        return ((stop - start) / (6 * n)) * (funkcjaX(start, a, b, c) + funkcjaX(stop, a, b, c) +
+                (2 * funkcjaXi) + (4 * funkcjaTi));
     }
 
     //funkcja dla ktorej obliczamy calke
